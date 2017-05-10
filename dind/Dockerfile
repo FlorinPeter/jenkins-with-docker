@@ -24,5 +24,7 @@ RUN chmod +x /usr/local/bin/dind \
 VOLUME /var/lib/docker
 EXPOSE 2375
 
+USER 0
+
 ENTRYPOINT ["/usr/local/bin/dockerd-entrypoint.sh"]
 CMD []
