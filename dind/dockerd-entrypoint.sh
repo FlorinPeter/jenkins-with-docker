@@ -14,7 +14,9 @@ fi
 if [ "$1" = 'docker' -a "$2" = 'daemon' ]; then
 	# if we're running Docker, let's pipe through dind
 	# (and we'll run dind explicitly with "sh" since its shebang is /bin/bash)
+	echo "sh $(which dind) $@"
 	set -- sh "$(which dind)" "$@"
 fi
 
+echo "exec: $@"
 exec "$@"
