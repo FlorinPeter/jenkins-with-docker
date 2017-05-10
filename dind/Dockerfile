@@ -14,10 +14,11 @@ RUN apk add --update \
 
 ENV DIND_COMMIT 4e899d64e020a67ca05f913d354aa8d99a341a7b
 
-RUN wget "https://raw.githubusercontent.com/docker/docker/${DIND_COMMIT}/hack/dind" -O /usr/local/bin/dind \
-	&& chmod +x /usr/local/bin/dind
-
 COPY dockerd-entrypoint.sh /usr/local/bin/
+
+RUN wget "https://raw.githubusercontent.com/docker/docker/${DIND_COMMIT}/hack/dind" -O /usr/local/bin/dind \
+	&& chmod +x /usr/local/bin/dind \
+	&& chmod +x /usr/local/bin/dockerd-entrypoint.sh
 
 VOLUME /var/lib/docker
 EXPOSE 2375
