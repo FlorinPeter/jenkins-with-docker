@@ -15,9 +15,9 @@ RUN apk add --update \
 ENV DIND_COMMIT 4e899d64e020a67ca05f913d354aa8d99a341a7b
 
 COPY dockerd-entrypoint.sh /usr/local/bin/
+COPY dind /usr/local/bin/
 
-RUN wget "https://raw.githubusercontent.com/docker/docker/${DIND_COMMIT}/hack/dind" -O /usr/local/bin/dind \
-	&& chmod +x /usr/local/bin/dind \
+RUN chmod +x /usr/local/bin/dind \
 	&& chmod +x /usr/local/bin/dockerd-entrypoint.sh \
 	&& chmod 777 /var/run/
 
