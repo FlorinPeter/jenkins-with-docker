@@ -18,7 +18,8 @@ COPY dockerd-entrypoint.sh /usr/local/bin/
 
 RUN wget "https://raw.githubusercontent.com/docker/docker/${DIND_COMMIT}/hack/dind" -O /usr/local/bin/dind \
 	&& chmod +x /usr/local/bin/dind \
-	&& chmod +x /usr/local/bin/dockerd-entrypoint.sh
+	&& chmod +x /usr/local/bin/dockerd-entrypoint.sh \
+	&& chmod 777 /var/run/
 
 VOLUME /var/lib/docker
 EXPOSE 2375
