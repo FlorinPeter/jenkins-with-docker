@@ -1,4 +1,4 @@
-FROM docker:1.10.3
+FROM docker:1.12.5
 # Source: https://github.com/docker-library/docker/blob/2e8569cf5c665ef955855e95be475f52a55c0720/1.8/dind/Dockerfile
 
 # https://github.com/docker/docker/blob/master/project/PACKAGERS.md#runtime-dependencies
@@ -22,5 +22,5 @@ COPY dockerd-entrypoint.sh /usr/local/bin/
 VOLUME /var/lib/docker
 EXPOSE 2375
 
-ENTRYPOINT ["dockerd-entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/dockerd-entrypoint.sh"]
 CMD []
